@@ -1,0 +1,12 @@
+{
+  "name": "content-refiner-server",
+  "version": "1.0.0",
+  "description": "Backend for Content-Refiner",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js" 
+  },
+  "author": "Sahil Mustilwar",
+  "license": "ISC"
+}
