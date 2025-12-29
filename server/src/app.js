@@ -25,6 +25,6 @@ app.use(cookieParser())
 
 
 //routes start
-
+app.use("/api/articles", articleRoutes);
 
 export {app}

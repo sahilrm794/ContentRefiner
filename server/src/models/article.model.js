@@ -9,6 +9,10 @@ const articleSchema = new Schema({
     },
     contentHtml: { 
         type: String,
+        trim:true,
+    },
+    content: { 
+        type: String,
         required: true,
         trim:true,
     },

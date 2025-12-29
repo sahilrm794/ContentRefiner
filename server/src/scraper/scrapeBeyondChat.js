@@ -84,6 +84,11 @@ const scrapeBeyondChats = async () => {
         "div.elementor-widget-theme-post-content"
     ).html();
 
+    const content = $(
+      "div.elementor-widget-theme-post-content"
+    ).text().trim();
+
+
     if (!contentHtml) {
         console.log("No content found, skipping:", url);
         continue;
@@ -96,6 +101,7 @@ const scrapeBeyondChats = async () => {
         author,
         category,
         contentHtml,
+        content,
         publishedAt: dateText ? new Date(dateText) : null,
         sourceUrl: url,
     });
