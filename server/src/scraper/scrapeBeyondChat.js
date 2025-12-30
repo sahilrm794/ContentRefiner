@@ -95,8 +95,14 @@ const scrapeBeyondChats = async () => {
     }
 
 
-    // 7. Save to database
-    await Article.create({
+    const existingArticle = await Article.findOne({
+      title,
+      content
+    });
+
+    if (!existingArticle) {
+      // 7. Save to database
+      await Article.create({
         title,
         author,
         category,
@@ -105,7 +111,8 @@ const scrapeBeyondChats = async () => {
         publishedAt: dateText ? new Date(dateText) : null,
         sourceUrl: url,
     });
-
+    }
+    
 
     console.log("Saved article:", title);
   }
