@@ -6,7 +6,8 @@ import { rewriteArticle } from "./services/llmRewrite.service.js";
 const automate = (async () => {
   // 1. Fetch articles from your API
 try {
-      const { data: articles } = await api.get("/");
+      const { data } = await api.get("/");
+      const articles = data.data
     
       for (const article of articles) {
         console.log("Processing:", article.title);

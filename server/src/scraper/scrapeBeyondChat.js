@@ -84,7 +84,7 @@ const scrapeBeyondChats = async () => {
         "div.elementor-widget-theme-post-content"
     ).html();
 
-    const content = $(
+    const content = $$(
       "div.elementor-widget-theme-post-content"
     ).text().trim();
 

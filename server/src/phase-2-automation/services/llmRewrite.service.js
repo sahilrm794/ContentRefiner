@@ -26,7 +26,7 @@ ${referenceUrls.join("\n")}
 `;
 
   const result = await geminiModel.generateContent(prompt);
-  const response = await result.response;
+  const response = result.response;
 
   return response.text();
 });
