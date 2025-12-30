@@ -1,7 +1,9 @@
 import express from  "express"
 import cors from "cors"
 import cookieParser from "cookie-parser";
-import router from "./routes/article.routes.js";
+import articleRouter from "./routes/article.routes.js";
+import { updatedArticleRouter } from "./routes/updatedArticle.routes.js";
+
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.use(cookieParser())
 
 
 //routes start
-app.use("/api/articles", router);
+app.use("/api/articles", articleRouter);
+app.use("/api/updated-articles", updatedArticleRouter);
 
 export {app}

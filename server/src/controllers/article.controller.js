@@ -30,7 +30,7 @@ const { title, content } = req.body;
 /**
  * READ all articles
  */
- const getAllArticles = async (req, res) => {
+ const getAllArticles = asyncHandler( async (req, res) => {
   try {
     const articles = await Article.find().sort({ createdAt: -1 });
      return res.status(200)
@@ -39,12 +39,12 @@ const { title, content } = req.body;
      console.error(error)
     throw new Apierror(500,"Something went wrong getting all articles.")
   }
-};
+});
 
 /**
  * READ single article
  */
- const getArticleById = async (req, res) => {
+ const getArticleById = asyncHandler( async (req, res) => {
   try {
     const article = await Article.findById(req.params.id);
     if (!article)
@@ -56,12 +56,12 @@ const { title, content } = req.body;
     console.error(error)
     throw new Apierror(500,"Something went wrong while getting article.")
   }
-};
+});
 
 /**
  * UPDATE article
  */
- const updateArticle = async (req, res) => {
+ const updateArticle = asyncHandler( async (req, res) => {
   try {
     const article = await Article.findByIdAndUpdate(
       req.params.id,
@@ -78,12 +78,12 @@ const { title, content } = req.body;
     console.error(error)
     throw new Apierror(500,"Something went wrong while updating article.")
   }
-};
+});
 
 /**
  * DELETE article
  */
- const deleteArticle = async (req, res) => {
+ const deleteArticle = asyncHandler( async (req, res) => {
   try {
     const article = await Article.findByIdAndDelete(req.params.id);
     if (!article)
@@ -95,7 +95,7 @@ const { title, content } = req.body;
     console.error(error)
     throw new Apierror(500,"Something went wrong while deleting article.")
   }
-};
+});
 
 export {
   createArticle,

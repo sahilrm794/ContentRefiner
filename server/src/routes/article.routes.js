@@ -8,12 +8,12 @@ import {
   deleteArticle
 } from "../controllers/article.controller.js";
 
-const router = Router();
+const articleRouter = Router();
 
-router.post("/", createArticle);
-router.get("/", getAllArticles);
-router.get("/:id", getArticleById);
-router.put("/:id", updateArticle);
-router.delete("/:id", deleteArticle);
+articleRouter.post("/", createArticle);
+articleRouter.get("/", getAllArticles);
+articleRouter.get("/:id", getArticleById);
+articleRouter.put("/:id", updateArticle);
+articleRouter.delete("/:id", deleteArticle);
 
-export default router;
+export default articleRouter;

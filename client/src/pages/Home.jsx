@@ -5,10 +5,11 @@ import ArticleCard from "../components/ArticleCard";
 export default function Home() {
   const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
-    fetchArticles().then(setArticles);
-  }, []);
+useEffect(() => {
+   fetchArticles().then(setArticles).catch(console.error);
+}, []);
 
+  console.log(articles)
   return (
     <div className="container">
       <h1>Original Articles</h1>
