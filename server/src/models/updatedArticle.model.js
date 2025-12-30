@@ -22,4 +22,4 @@ const updatedArticleSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("UpdatedArticle", updatedArticleSchema);
+export const UpdatedArticle = mongoose.model("UpdatedArticle", updatedArticleSchema);

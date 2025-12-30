@@ -8,7 +8,7 @@ const connectDB = async()=>{
         const connectioninstance = await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
         console.log(`\n MongoDB connected !! DB Host:${connectioninstance.connection.host}`)
         // scrapeBeyondChats();
-        automate();
+        // automate();
 
     } catch (error) {
         console.log("Mongodb error",error);

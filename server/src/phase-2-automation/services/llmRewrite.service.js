@@ -1,5 +1,5 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
-import { geminiModel } from "../../configs/llm.configs.js";
+import { groq } from "../../configs/llm.configs.js";
 
 export const rewriteArticle = asyncHandler(async (
   originalContent,
@@ -25,8 +25,10 @@ Rewrite the original article:
 ${referenceUrls.join("\n")}
 `;
 
-  const result = await geminiModel.generateContent(prompt);
-  const response = result.response;
+  const completion = await groq.chat.completions.create({
+    model: "llama-3.1-8b-instant",
+    messages: [{ role: "user", content: prompt }],
+  });
 
-  return response.text();
+  return completion.choices[0].message.content;
 });
