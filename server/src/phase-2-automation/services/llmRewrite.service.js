@@ -1,5 +1,5 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
-import { geminiModel } from "../config/gemini.js";
+import { geminiModel } from "../../configs/llm.configs.js";
 
 export const rewriteArticle = asyncHandler(async (
   originalContent,

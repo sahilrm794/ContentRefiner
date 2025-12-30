@@ -1,6 +1,6 @@
-import Article from "../models/article.model.js";
+import {Article} from "../models/article.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import {ApiError} from "../utils/Apierror.js"
+import { Apierror } from "../utils/Apierror.js"
 import { Apiresponse } from "../utils/Apiresponse.js"
 
 /**
@@ -16,14 +16,14 @@ const { title, content } = req.body;
   });
 
   if (existingArticle) {
-    throw new ApiError(409,"Article already exxist")
+    throw new Apierror(409,"Article already exxist")
   }
     const article = await Article.create(req.body);
     return res.status(200)
     .json(new Apiresponse(200,article,"Article created successfully"))
   } catch (error) {
     console.error(error)
-    throw new ApiError(500,"Something went wrong while creating article.")
+    throw new Apierror(500,"Something went wrong while creating article.")
   }
 })
 
@@ -37,7 +37,7 @@ const { title, content } = req.body;
     .json(new Apiresponse(200,articles,"Articles fetched successfully"))
   } catch (error) {
      console.error(error)
-    throw new ApiError(500,"Something went wrong getting all articles.")
+    throw new Apierror(500,"Something went wrong getting all articles.")
   }
 };
 
@@ -48,13 +48,13 @@ const { title, content } = req.body;
   try {
     const article = await Article.findById(req.params.id);
     if (!article)
-      throw new ApiError(404,"Article not found")
+      throw new Apierror(404,"Article not found")
 
     return res.status(200)
     .json(new Apiresponse(200,article,"Article fetched successfully"))
   } catch (error) {
     console.error(error)
-    throw new ApiError(500,"Something went wrong while getting article.")
+    throw new Apierror(500,"Something went wrong while getting article.")
   }
 };
 
@@ -70,13 +70,13 @@ const { title, content } = req.body;
     );
 
     if (!article)
-      throw new ApiError(404,"Article not found")
+      throw new Apierror(404,"Article not found")
 
     return res.status(200)
     .json(new Apiresponse(200,article,"Article updated successfully"))
   } catch (error) {
     console.error(error)
-    throw new ApiError(500,"Something went wrong while updating article.")
+    throw new Apierror(500,"Something went wrong while updating article.")
   }
 };
 
@@ -87,13 +87,13 @@ const { title, content } = req.body;
   try {
     const article = await Article.findByIdAndDelete(req.params.id);
     if (!article)
-      throw new ApiError(404,"Article not found")
+      throw new Apierror(404,"Article not found")
 
     return res.status(200)
     .json(new Apiresponse(200,article,"Article deleted successfully"))
   } catch (error) {
     console.error(error)
-    throw new ApiError(500,"Something went wrong while deleting article.")
+    throw new Apierror(500,"Something went wrong while deleting article.")
   }
 };
 

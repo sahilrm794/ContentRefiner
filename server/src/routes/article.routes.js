@@ -1,4 +1,5 @@
 import express from "express";
+import { Router } from "express";
 import {
   createArticle,
   getAllArticles,
@@ -7,7 +8,7 @@ import {
   deleteArticle
 } from "../controllers/article.controller.js";
 
-const router = express.Router();
+const router = Router();
 
 router.post("/", createArticle);
 router.get("/", getAllArticles);

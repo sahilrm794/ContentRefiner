@@ -1,7 +1,7 @@
-import api from "../config/axios.js";
-import { googleSearch } from "../services/googleSearch.js";
-import { scrapeArticleText } from "/services/contentScraper.js";
-import { rewriteArticle } from "/services/llmRewrite.js";
+import api from "../configs/axios.configs.js";
+import { googleSearch } from "./services/googleSearch.service.js";
+import { scrapeArticleText } from "./services/contentScrapper.service.js";
+import { rewriteArticle } from "./services/llmRewrite.service.js";
 
 const automate = (async () => {
   // 1. Fetch articles from your API
