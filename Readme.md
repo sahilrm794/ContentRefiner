@@ -77,7 +77,7 @@
 │ Frontend (React)       │
 │ Hosted on Vercel       │
 └────────────────────────┘
-
+```
 # 🛠️ Tech Stack
 
 ### Frontend
@@ -127,7 +127,7 @@ root/
 │   └── package.json
 │
 └── README.md
-
+```
 ## ⚙️ Local Setup Instructions
 
 Follow these steps to run the project locally.
@@ -136,14 +136,14 @@ Follow these steps to run the project locally.
 ```bash
 git clone <your-github-repo-url>
 cd content-refiner
-
+```
 ### 2️⃣ Backend Setup
 Navigate to the server directory and install dependencies:
 
 ```bash
 cd server
 npm install
-
+```
 Create a `.env` file inside the `server/` directory:
 
 ```env
@@ -153,13 +153,13 @@ GROQ_API_KEY=your_groq_api_key
 CORS_ORIGIN=http://localhost:5173
 ARTICLES_API=http://localhost:5000/api/articles
 NODE_ENV=development
-
+```
 ### Start the backend server:
 
 ```bash
 npm start
 The backend runs on: http://localhost:5000
-
+```
 ## 3️⃣ Run Automation Script (Phase 2)
 
 To run the scraping and AI rewriting automation, execute the following commands from the **server/** directory:
@@ -170,7 +170,7 @@ node src/scraper/scrapeBeyondChat.js
 
 # Run Phase 2 Automation (Google Search → Scrape References → Rewrite via LLM)
 node src/phase-2-automation/index.js
-
+```
 ### 🔄 Automation Workflow
 
 This automation workflow performs the following steps:
@@ -190,14 +190,14 @@ Navigate to the `client/` directory and install dependencies:
 ```bash
 cd client
 npm install
-
+```
 ### 🧩 Environment Configuration
 
 Create a `.env` file inside the `client/` directory and add the following:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
-
+```
 This variable is used by the frontend to communicate with the backend API.
 
 ▶ Run the Frontend Application
