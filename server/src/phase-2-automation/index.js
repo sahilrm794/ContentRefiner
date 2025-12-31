@@ -45,4 +45,4 @@ try {
 }
 })
 
-export {automate}
+automate()

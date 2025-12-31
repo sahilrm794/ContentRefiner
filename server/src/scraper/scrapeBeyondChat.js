@@ -120,4 +120,4 @@ const scrapeBeyondChats = async () => {
   console.log("Scraping completed");
 };
 
-export default scrapeBeyondChats;
+scrapeBeyondChats();
